@@ -1,0 +1,150 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.loadmain {
+  align-items: center;
+  background-color: #667af7;
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 999999;
+}
+body {
+  font-family: "Inter";
+  font-size: 14px;
+}
+#root {
+  --highlight-color: rgba(94, 117, 251, 1);
+  --dashtop-bgcolor: #1f2338;
+  --bold: #1f2338;
+}
+.flexcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader:after,
+.loader:before {
+  border-radius: 50%;
+  box-sizing: border-box;
+  content: "";
+  height: inherit;
+  position: absolute;
+  top: -0.2em;
+  width: inherit;
+  filter: blur(1px);
+}
+.loader:before {
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+  box-shadow: 0px 26px 15px 10px #ff0080, 0px -26px 15px 10px #ffe247;
+}
+.loader:after {
+  -webkit-transform: rotate(240deg);
+  transform: rotate(240deg);
+  box-shadow: 0px 26px 15px 10px #ffe247, 0px -26px 15px 10px #0015d0;
+}
+.loader {
+  --direction: 1;
+  -webkit-animation: rotating 2s ease-in-out infinite;
+  animation: rotating 2s ease-in-out infinite;
+  border-radius: 50%;
+  box-sizing: border-box;
+  font-size: 25px;
+  height: 10em;
+  position: relative;
+  width: 20em;
+  box-shadow: 0px 26px 15px 10px #ff0080, 0px -26px 15px 10px #0015d0;
+}
+@keyframes rotating {
+  50% {
+    transform: rotate(calc(180deg * var(--direction)));
+  }
+  100% {
+    transform: rotate(calc(360deg * var(--direction)));
+  }
+}
+.loader span {
+  --direction: -1;
+  -webkit-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+  color: rgb(0, 0, 0);
+  font-family: sans-serif;
+  height: inherit;
+  line-height: 10em;
+  position: absolute;
+  text-align: center;
+  width: inherit;
+  z-index: 999;
+  text-shadow: 2px 2px 5px #ff0000;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.box:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(-45deg, #ff5acd 0%, #fbda61 100%);
+  transform: translate3d(0px, 20px, 0) scale(0.95);
+  opacity: var(0.7);
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.box::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
